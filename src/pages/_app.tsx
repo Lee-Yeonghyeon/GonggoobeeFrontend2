@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app'
 import Header from '../components/Header'
-import {Desktop, Mobile} from '../components/design/ui';
+import '../styles/fonts/notosans.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

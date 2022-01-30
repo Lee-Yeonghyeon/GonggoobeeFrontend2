@@ -1,0 +1,13 @@
+@font-face {
+    font-family: "NotoSans";
+    font-weight: 400;
+    src: url("./NOTOSANSKR-REGULAR.woff") format("woff"),
+    url("./NOTOSANSKR-REGULAR.ttf") format("truetype");;
+}
+
+@font-face {
+    font-family: "NotoSans";
+    font-weight: 700;
+    src: url("./NOTOSANSKR-BOLD.woff") format("woff"),
+    url("./NOTOSANSKR-BOLD.ttf") format("truetype");
+}
