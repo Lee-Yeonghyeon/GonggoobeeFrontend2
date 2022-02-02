@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import Link from 'next/link';
 import Image from 'next/image';
-import {Desktop, Mobile} from '../components/design/ui';
+import {Desktop, Mobile, Colors} from '../components/design/ui';
 
 export default function Header() {
   return (
@@ -60,7 +60,7 @@ const Container = styled.div`
 const DesktopContainer = styled.header`
     width: 738px;
     height: 36px;
-    background: #FFFFFF;
+    background: ${Colors.white};
     filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.1));
 
     display: flex;
@@ -75,7 +75,7 @@ const DesktopContainer = styled.header`
 const MobileContainer = styled.header`
     max-width: 100%;
     height: 36px;
-    background: #FFFFFF;
+    background: ${Colors.white};
     filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.1));
 
     display: flex;

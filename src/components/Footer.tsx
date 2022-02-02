@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import Image from 'next/image';
-import {Desktop, Mobile} from '../components/design/ui';
+import {Desktop, Mobile, Colors} from '../components/design/ui';
 
 export default function Footer() {
   return (
@@ -68,15 +68,15 @@ const DesktopContainer = styled.div`
 const Section1 = styled.div`
     width: 100%;
     height: 42px;
-    background: #666666;
-    border-bottom: solid 1px #545454;
+    background: ${Colors.gray4};
+    border-bottom: solid 1px ${Colors.gray5};
 
     display: flex;
     justify-content: center;
     align-items: center;
 
     .top{
-        color: #FFFFFF;
+        color: ${Colors.white};
         text-decoration:none
     }
 `;
@@ -84,7 +84,7 @@ const Section1 = styled.div`
 const Section2 = styled.div`
     width: 100%;
     height: 128px;
-    background: #666666;
+    background: ${Colors.gray4};
 
     display: flex;
     flex-direction: column;
@@ -94,7 +94,7 @@ const Section2 = styled.div`
     font-family: NotoSans;
     font-weight: 400;
     font-size: 10px;
-    color: #8B8B8A;
+    color: ${Colors.gray3};
 
     .contents{
         display: flex;
@@ -108,7 +108,7 @@ const Section2 = styled.div`
 const Section3 = styled.div`
     width: 100%;
     height: 42px;
-    background: #8E8E8B;
+    background: ${Colors.gray3};
 
     display: flex;
     justify-content: center;
@@ -122,6 +122,6 @@ const Section3 = styled.div`
         margin-left: 7px;
         margin-right: 3px;
 
-        color: #FFBB0D;
+        color: ${Colors.yellow2};
     }
 `;
