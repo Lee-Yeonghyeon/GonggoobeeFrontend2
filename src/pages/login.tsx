@@ -48,10 +48,10 @@ export default function login() {
 }
 
 const DesktopContainer = styled.div`
-width: 768px;
+  width: 768px;
 
-margin-left:auto;
-margin-right:auto;
+  margin-left:auto;
+  margin-right:auto;
 `;
 
 const Section1 = styled.div`

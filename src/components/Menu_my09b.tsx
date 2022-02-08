@@ -1,34 +1,57 @@
 import styled from '@emotion/styled';
-import React from 'react';
-import Link from 'next/link';
+import React, {useContext} from 'react';
 import Image from 'next/image';
 import {Colors, Button} from '../components/design/ui';
+import { myContext } from '../context';
+import { User } from '../types/usertypes';
 
-function onClickListener(){
-    window.location.href='/login'
-}
+export default function Menu_my09b( props: any ){
+    const userObject = useContext(myContext) as User;
 
-export default function Menu_my09b() {
   return (
     <>
         <Title>마이공구비</Title>
-        <Container>
-            <div className='box'>
-                <div className='user'>
-                    <Image src='/profile_default.png' alt='' width={44} height={44} />
-                    <div style={{marginLeft: '19px'}}>
-                        <div className='user-name'>로그인 해주세요</div>
-                        <div className='user-info'>
-                            <div>총 거래 수 0</div>
-                            <div>팔로워 0</div>
-                            <div>팔로우 0</div>
+        {props.type === 'login' ?
+            <>
+                {/* 로그인한 상태 */}
+                <Container>
+                    <div className='box'>
+                        <div className='user'>
+                            <Image src={userObject.userId === 1 ? "/profile_wonderful.png" : "/profile_wonderwomen.png"} alt='' width={44} height={44} />
+                            <div style={{marginLeft: '19px'}}>
+                                <div className='user-name'>{userObject.name}</div>
+                                <div className='user-info'>
+                                    <div>총 거래 수 {userObject.deal}</div>
+                                    <div>팔로워 {userObject.follower}</div>
+                                    <div>팔로우 {userObject.following}</div>
+                                </div>
+                            </div>
                         </div>
+                        <Button onClick = {() => location.href = process.env.NEXT_PUBLIC_LOGOUT_GOOGLE as string} type = '92'>로그아웃</Button>
                     </div>
-                </div>
-                <Button onClick = {onClickListener} type = '92'>로그인</Button>
-            </div>
-
-        </Container>
+                </Container>
+            </>
+        :
+            <>
+                {/* 로그인하지 않은 상태 */}
+                <Container>
+                    <div className='box'>
+                        <div className='user'>
+                            <Image src='/profile_default.png' alt='' width={44} height={44} />
+                            <div style={{marginLeft: '19px'}}>
+                                <div className='user-name'>로그인 해주세요</div>
+                                <div className='user-info'>
+                                    <div>총 거래 수 0</div>
+                                    <div>팔로워 0</div>
+                                    <div>팔로우 0</div>
+                                </div>
+                            </div>
+                        </div>
+                        <Button onClick = {() => location.href = '/login'} type = '92'>로그인</Button>
+                    </div>
+                </Container>
+            </>
+        }  
     </>
   
   );
