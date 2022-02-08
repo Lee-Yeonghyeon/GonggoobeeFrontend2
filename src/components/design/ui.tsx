@@ -1,6 +1,8 @@
 import React from "react";
 import { useMediaQuery } from "react-responsive";
 import * as _colors from './colors';
+import { Button as _button } from './buttons';
+import { LoginButton as _loginButton } from './loginButtons';
 
 
 {/* Media Query */}
@@ -15,3 +17,7 @@ export const Mobile: React.FC = ({ children }) => {
 
 {/* Variable */}
 export const Colors = _colors.Colors;
+
+{/* Components */}
+export const Button = _button;
+export const LoginButton = _loginButton;

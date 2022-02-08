@@ -9,11 +9,10 @@ interface IButtonProps{ // type = "login" => 로그인, type = "start" => 시작
     type?: string;
     style?: object[] | object;
     url?: string;
-    disabled?: any;
     onClick?: any;
 }
 
-export const Button: React.FC<IButtonProps> = ({ children, type, style, url, disabled, onClick }) => {
+export const Button: React.FC<IButtonProps> = ({ children, type, style, url, onClick }) => {
 
     const [buttonText, setButtonText] = useState(children);
     const [isLoading, setisLoading] = useState(false);
@@ -33,26 +32,10 @@ export const Button: React.FC<IButtonProps> = ({ children, type, style, url, dis
 
     const tagType:string = type ? type : 'start'; //기본 타입 start
     const styles:{[key: string]: any} = {
-      'login': {
-        weight : '500',
-        background: Colors.white,
-        borderColor: Colors.black,
-        color: Colors.black,
-        hover: {
-          background: Colors.white,
-          borderColor: Colors.yellow2,
-          color: Colors.yellow2,
-        },
-        pressed: {
-          background: Colors.white,
-          borderColor: Colors.yellow1,
-          color: Colors.yellow1,
-        },
-        disabled: {
-          background: Colors.white,
-          borderColor: Colors.gray3,
-          color: Colors.gray3,
-        },
+      '92': {
+        width : '92%',
+        background: Colors.gray2,
+        color: Colors.white,
       },
       'loginWhite': {
         weight : '500',
@@ -120,52 +103,23 @@ export const Button: React.FC<IButtonProps> = ({ children, type, style, url, dis
     }
     
 
-    const Button = styled.button`
-      -webkit-transition: background 0.3s, color 0.3s, border 0.3s, -webkit-transform 0.3s;
-      transition: background 0.3s, color 0.3s, border 0.3s, transform 0.3s;
+    const Button = styled.div`
       cursor : pointer;
-      height : 52px;
-      width : 160px;
-      min-width: 136px;
-      border-radius: 20px;
-      border-width : 1px;
-      border-color : ${styles[tagType].borderColor};
-      border-style : solid;
+      height : 35px;
+      width : ${styles[tagType].width};
+      border-radius: 7px;
       background-color: ${styles[tagType].background};
+
+      font-family: NotoSans;
+      font-size: 14px;
+      font-weight: 700;
       color : ${styles[tagType].color};
-
-      font-family: Spoqa Han Sans Neo;
-      font-size: 16px;
-      font-style: normal;
-      font-weight: ${styles[tagType].weight};
-      line-height: 19px;
-      letter-spacing: 0em;
-      text-align: center;
-
-      &:hover{
-        background-color: ${styles[tagType].hover.background};
-        color: ${styles[tagType].hover.color};
-        border-color : ${!isLoading? styles[tagType].hover.borderColor : styles[tagType].borderColor};
-      }    
-
-      &:active{
-        background-color: ${styles[tagType].pressed.background};
-        color: ${styles[tagType].pressed.color};
-        border-color : ${styles[tagType].pressed.borderColor};
-      }
-
-      &:disabled{
-        cursor : default;
-        background-color: ${styles[tagType].disabled.background};
-        color: ${styles[tagType].disabled.color};
-        border-color : ${styles[tagType].disabled.borderColor};
-      }
-
-      &:focus{
-        outline : none;
-      }
+      
+      display: flex;
+      justify-content: center;
+      align-items: center;
     `;
     return (
-      <Button style={assignCss(style)} disabled={disabled} onClick={()=>{loading(); onClick ? onClick() : null}}>{buttonText}</Button>
+      <Button style={assignCss(style)} onClick={()=>{loading(); onClick ? onClick() : null}}>{buttonText}</Button>
     )
 }

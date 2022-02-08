@@ -10,7 +10,7 @@ export default function Header() {
         {/* Desktop */}
         <Desktop>
             <DesktopContainer>
-                <Link href ="/">
+                <Link href ="/menu">
                     <a className="menu" > <Image src="/button/btn_hambugerMenu.png" alt="" width={24} height={24} /> </a>
                 </Link>
                 <Link href="/">
@@ -28,7 +28,7 @@ export default function Header() {
         {/* Mobile */}
         <Mobile>
             <MobileContainer>
-            <Link href ="/">
+            <Link href ="/menu">
                     <a className="menu" > <Image src="/button/btn_hambugerMenu.png" alt="" width={24} height={24} /> </a>
                 </Link>
                 <Link href="/">
